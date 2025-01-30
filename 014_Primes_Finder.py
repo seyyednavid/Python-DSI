@@ -61,13 +61,12 @@ def primes_founder(n):
 
     # While loop
     while number_range:
-            prime = number_range.pop()
+            prime = min(sorted(number_range))
+            number_range.remove(prime)
             primes_list.append(prime)
             multiples = set(range(prime*2, n+1, prime))
             number_range.difference_update(multiples)
 
-    # print our list of primes        
-    #print(primes_list)
 
     # number of primes that were found
     prime_count = len(primes_list)
